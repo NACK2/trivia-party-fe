@@ -10,6 +10,12 @@ function CustomThemeProvider({ children }: CustomThemeProviderProps) {
     },
     typography: {
       fontFamily: "Bungee, sans-serif",
+      h1: {
+        fontSize: 65,
+      },
+      h2: {
+        fontSize: 45,
+      },
       subtitle1: {
         fontFamily: "monospace",
         fontSize: 18,

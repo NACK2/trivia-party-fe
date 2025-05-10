@@ -48,7 +48,7 @@ function Home() {
               }}
               onClick={() => setOpenSingleplayer(true)}
             >
-              SINGLE PLAYER
+              <Typography variant="h2">SINGLE PLAYER</Typography>
             </Box>
             <Box
               sx={{
@@ -59,7 +59,7 @@ function Home() {
                 console.log("online");
               }}
             >
-              ONLINE
+              <Typography variant="h2">ONLINE</Typography>
             </Box>
           </Box>
         </Box>

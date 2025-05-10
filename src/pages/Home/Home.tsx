@@ -9,7 +9,7 @@ function Home() {
       {openSingleplayer ? (
         <Singleplayer />
       ) : (
-        <>
+        <Box sx={{ display: "flex", flexDirection: "column", height: "100%" }}>
           <Box
             sx={{
               display: "flex",
@@ -41,7 +41,7 @@ function Home() {
               PARTY
             </Typography>
           </Box>
-          <Box sx={{ display: "flex", height: "100%" }}>
+          <Box sx={{ display: "flex", flexGrow: 1 }}>
             <Box
               sx={{
                 ...cardStyles,
@@ -62,7 +62,7 @@ function Home() {
               ONLINE
             </Box>
           </Box>
-        </>
+        </Box>
       )}
     </Box>
   );

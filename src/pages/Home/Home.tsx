@@ -48,7 +48,17 @@ function Home() {
               }}
               onClick={() => setOpenSingleplayer(true)}
             >
-              <Typography variant="h2">SINGLE PLAYER</Typography>
+              <Typography
+                variant="h2"
+                sx={{
+                  "&:hover": {
+                    fontSize: 50,
+                    cursor: "pointer",
+                  },
+                }}
+              >
+                SINGLE PLAYER
+              </Typography>
             </Box>
             <Box
               sx={{
@@ -59,7 +69,17 @@ function Home() {
                 console.log("online");
               }}
             >
-              <Typography variant="h2">ONLINE</Typography>
+              <Typography
+                variant="h2"
+                sx={{
+                  "&:hover": {
+                    fontSize: 50,
+                    cursor: "pointer",
+                  },
+                }}
+              >
+                ONLINE
+              </Typography>
             </Box>
           </Box>
         </Box>
@@ -76,10 +96,6 @@ const cardStyles = {
   display: "flex",
   justifyContent: "center",
   alignItems: "center",
-  "&:hover": {
-    fontSize: 80,
-    cursor: "pointer",
-  },
 };
 
 export default Home;

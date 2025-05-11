@@ -16,6 +16,9 @@ function CustomThemeProvider({ children }: CustomThemeProviderProps) {
       h2: {
         fontSize: 45,
       },
+      h6: {
+        fontSize: 20,
+      },
       subtitle1: {
         fontFamily: "monospace",
         fontSize: 18,

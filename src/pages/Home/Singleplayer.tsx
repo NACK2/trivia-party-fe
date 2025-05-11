@@ -1,4 +1,5 @@
 import { Box, Typography } from "@mui/material";
+import Card from "./components/Card";
 
 function Singleplayer() {
   return (
@@ -17,7 +18,32 @@ function Singleplayer() {
       <Typography color="secondary.dark" variant="subtitle1">
         Sample description for now
       </Typography>
-      <Box sx={{ mt: 4, bgcolor: "primary.dark", flexGrow: "1" }}></Box>
+      <Box
+        sx={{
+          mt: 4,
+          p: 4,
+          bgcolor: "primary.dark",
+          display: "flex",
+          justifyContent: "space-evenly",
+        }}
+      >
+        {/* TODO: add elevation and make clickable */}
+        <Card
+          title="TRIVIA OF THE DAY"
+          subtitle="Body text"
+          imgSrc="/src/images/triviaOfTheDay.png"
+        />
+        <Card
+          title="TRIVIA OF THE DAY"
+          subtitle="Body text"
+          imgSrc="/src/images/triviaOfTheDay.png"
+        />
+        <Card
+          title="TIME ATTACK"
+          subtitle="Body text"
+          imgSrc="/src/images/timeAttack.png"
+        />
+      </Box>
     </Box>
   );
 }

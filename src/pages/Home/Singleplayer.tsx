@@ -24,24 +24,29 @@ function Singleplayer() {
           p: 4,
           bgcolor: "primary.dark",
           display: "flex",
+          flexGrow: 1,
           justifyContent: "space-evenly",
+          alignItems: "center",
+          borderRadius: 4,
         }}
       >
-        {/* TODO: add elevation and make clickable */}
         <Card
-          title="TRIVIA OF THE DAY"
+          title="UNTITLED"
           subtitle="Body text"
           imgSrc="/src/images/triviaOfTheDay.png"
+          onClick={() => console.log("untitled gamemode")}
         />
         <Card
           title="TRIVIA OF THE DAY"
           subtitle="Body text"
           imgSrc="/src/images/triviaOfTheDay.png"
+          onClick={() => console.log("test")}
         />
         <Card
           title="TIME ATTACK"
           subtitle="Body text"
           imgSrc="/src/images/timeAttack.png"
+          onClick={() => console.log("time attack")}
         />
       </Box>
     </Box>

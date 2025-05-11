@@ -4,10 +4,11 @@ import Singleplayer from "./Singleplayer";
 
 function Home() {
   const [openSingleplayer, setOpenSingleplayer] = useState(false);
+
   return (
     <Box sx={{ bgcolor: "primary.main", height: "100vh" }}>
       {openSingleplayer ? (
-        <Singleplayer />
+        <Singleplayer returnHome={() => setOpenSingleplayer(false)} />
       ) : (
         <Box sx={{ display: "flex", flexDirection: "column", height: "100%" }}>
           <Box

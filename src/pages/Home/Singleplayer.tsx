@@ -1,5 +1,5 @@
 import { Box, Typography } from "@mui/material";
-import Card from "./components/Card";
+import Card from "../components/Card";
 
 function Singleplayer() {
   return (

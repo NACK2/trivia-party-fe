@@ -23,6 +23,10 @@ function CustomThemeProvider({ children }: CustomThemeProviderProps) {
         fontFamily: "monospace",
         fontSize: 18,
       },
+      body1: {
+        fontFamily: "monospace",
+        fontSize: 30,
+      },
     },
   });
 

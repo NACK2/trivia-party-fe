@@ -1,9 +1,12 @@
 import { Box, Button, Typography } from "@mui/material";
 import ArrowLeftIcon from "@mui/icons-material/ArrowLeft";
 import Card from "../components/Card";
+import { useNavigate } from "react-router-dom";
 
 function Singleplayer(props: SingleplayerProps) {
   const { returnHome } = props;
+  const navigate = useNavigate();
+
   return (
     <Box
       sx={{
@@ -17,7 +20,7 @@ function Singleplayer(props: SingleplayerProps) {
       <Box>
         <Button
           startIcon={<ArrowLeftIcon />}
-          variant="text"
+          variant="outlined"
           color="secondary"
           size="medium"
           sx={{ mb: 1 }}
@@ -47,14 +50,16 @@ function Singleplayer(props: SingleplayerProps) {
         <Card
           title="SURVIVAL"
           subtitle="Body text"
-          imgSrc="/src/images/triviaOfTheDay.png"
+          imgSrc="/src/images/survival.png"
           onClick={() => console.log("survival")}
         />
         <Card
           title="TRIVIA OF THE DAY"
           subtitle="Body text"
           imgSrc="/src/images/triviaOfTheDay.png"
-          onClick={() => console.log("trivia of the day")}
+          onClick={() => {
+            navigate("/singleplayer/triviaOfTheDay");
+          }}
         />
         <Card
           title="TIME ATTACK"

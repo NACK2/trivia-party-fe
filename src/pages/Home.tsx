@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Box, Typography } from "@mui/material";
-import Singleplayer from "./Singleplayer";
+import Singleplayer from "./Singleplayer/Singleplayer";
 
 function Home() {
   const [openSingleplayer, setOpenSingleplayer] = useState(false);

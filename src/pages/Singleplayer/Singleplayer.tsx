@@ -15,6 +15,7 @@ function Singleplayer(props: SingleplayerProps) {
         height: "100vh",
         display: "flex",
         flexDirection: "column",
+        bgcolor: "primary.main",
       }}
     >
       <Box>

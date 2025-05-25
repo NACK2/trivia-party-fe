@@ -14,13 +14,13 @@ const fetchQuestions = async () => {
   return questions?.data;
 };
 
-// TODO: intergrate trivia API
+// TODO: create component that accepts triviaData
 function TriviaOfTheDay() {
   const { data, isError, isLoading } = useQuery({
     queryKey: ["trivia"],
     queryFn: fetchQuestions,
   });
-  console.log(data);
+  const triviaData: TriviaData = data?.results;
 
   const question = "Who won the NBA championship in 2022?";
   const choices = [
@@ -34,3 +34,12 @@ function TriviaOfTheDay() {
 }
 
 export default TriviaOfTheDay;
+
+type TriviaData = {
+  type: string;
+  category: string;
+  correct_answer: string;
+  incorrect_answers: string[];
+  difficulty: string;
+  question: string;
+};

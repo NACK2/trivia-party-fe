@@ -1,9 +1,12 @@
-import GameLayout from "../components/GameLayout";
+import GameLayout from "../../components/GameLayout";
 import { getSessionToken } from "../../helper";
 import { TRIVIA_BASE_URL } from "../../constants";
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
 
+// TODO: move this api call to to backend later
+// reasoning: don't want session token exposed in frontend through network devTools, not sensitive info such as payment or user info,
+// h/e, can ruin UX if other users obtain this sessionToken and ruin a users questions
 const fetchQuestions = async () => {
   const sessionData = await getSessionToken();
   const sessionToken = sessionData?.data.token;

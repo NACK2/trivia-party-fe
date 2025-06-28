@@ -1,6 +1,6 @@
 import { Box, Button, Typography } from "@mui/material";
 import ArrowLeftIcon from "@mui/icons-material/ArrowLeft";
-import Card from "../components/Card";
+import Card from "../../components/Card";
 import { useNavigate } from "react-router-dom";
 
 function Singleplayer(props: SingleplayerProps) {

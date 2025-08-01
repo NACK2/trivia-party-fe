@@ -1,6 +1,6 @@
 import { Box, Button, Typography } from "@mui/material";
 import ArrowLeftIcon from "@mui/icons-material/ArrowLeft";
-import Card from "../components/Card";
+import Card from "../../components/Card";
 
 function Singleplayer(props: SingleplayerProps) {
   const { returnHome } = props;

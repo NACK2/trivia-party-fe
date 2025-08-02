@@ -1,0 +1,17 @@
+@import url("https://fonts.googleapis.com/css2?family=Bungee&family=Luckiest+Guy&display=swap");
+@import "tailwindcss";
+@theme {
+  --font-luckiest: "Luckiest Guy", cursive;
+}
+
+body {
+  background: linear-gradient(
+    0.25turn,
+    var(--mantine-color-indigo-6),
+    var(--mantine-color-grape-8)
+  );
+}
+
+.outlinedText {
+  -webkit-text-stroke: 1px black;
+}

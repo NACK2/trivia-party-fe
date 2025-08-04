@@ -1,4 +1,5 @@
-import { Button, Flex, Title, TextInput } from "@mantine/core";
+import { ActionIcon, Button, Flex, Title, TextInput } from "@mantine/core";
+import { IconChevronRight } from "@tabler/icons-react";
 import styles from "./Home.module.css";
 
 function Home() {
@@ -19,15 +20,20 @@ function Home() {
         <Button color="orange.3" c="white" size="xl" radius="md">
           CREATE LOBBY!
         </Button>
-        <TextInput
-          size="lg"
-          radius="md"
-          placeholder="LOBBY CODE"
-          maw="14rem"
-          classNames={{
-            input: styles.input,
-          }}
-        />
+        <Flex justify="center" align="center" gap="1rem">
+          <TextInput
+            size="lg"
+            radius="md"
+            placeholder="LOBBY CODE"
+            maw="14rem"
+            classNames={{
+              input: styles.input,
+            }}
+          />
+          <ActionIcon size="sm" radius="md" color="orange.3">
+            <IconChevronRight color="black" strokeWidth="2" />
+          </ActionIcon>
+        </Flex>
       </Flex>
     </Flex>
   );

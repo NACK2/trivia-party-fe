@@ -2,10 +2,11 @@ import type { ReactNode } from "react";
 import {
   MantineProvider,
   createTheme,
+  ActionIcon,
+  Button,
   Title,
   Text,
   TextInput,
-  Button,
 } from "@mantine/core";
 import styles from "./Global.module.css";
 import "@mantine/core/styles.css";
@@ -13,20 +14,53 @@ import "@mantine/core/styles.css";
 function CustomMantineThemeProvider(props: CustomMantineThemeProviderProps) {
   const { children } = props;
   const theme = createTheme({
+    other: {
+      controlHeight: {
+        // global heights for control components such as Button, TextInput, etc.
+        xl: "4rem",
+        lg: "3.5rem",
+        md: "3rem",
+        sm: "2.5rem",
+      },
+    },
     components: {
+      ActionIcon: ActionIcon.extend({
+        vars: (theme, props) => {
+          if (props.size === "sm") {
+            return {
+              root: {
+                "--ai-size": theme.other.controlHeight.sm,
+              },
+            };
+          }
+
+          return { root: {} };
+        },
+      }),
       Button: Button.extend({
         classNames: (_, props) => ({
           root: props.c === "white" ? styles.outlinedText : undefined,
         }),
-        vars: (_, props) => {
+        vars: (theme, props) => {
+          // can probably refactor this into a single object later if theres enough overlap among sizes
           if (props.size === "xl") {
             return {
               root: {
-                "--button-height": "4rem",
+                "--button-height": theme.other.controlHeight.xl,
                 "--button-padding-x": "1.5rem",
               },
               label: {
-                padding: "0 2px", // x axis padding is needed for label b/c Luckiest Guy font cuts off on edges for some reason
+                padding: "0 2px", // x axis padding needed for label b/c Luckiest Guy font cuts off on edges for some reason
+              },
+            };
+          } else if (props.size === "lg") {
+            return {
+              root: {
+                "--button-height": theme.other.controlHeight.lg,
+                "--button-padding-x": "1.5rem",
+              },
+              label: {
+                padding: "0 2px",
               },
             };
           }
@@ -45,11 +79,11 @@ function CustomMantineThemeProvider(props: CustomMantineThemeProviderProps) {
         }),
       }),
       TextInput: TextInput.extend({
-        vars: (_, props) => {
+        vars: (theme, props) => {
           if (props.size === "lg") {
             return {
               wrapper: {
-                "--input-height": "4rem",
+                "--input-height": theme.other.controlHeight.lg,
               },
             };
           }
@@ -70,9 +104,6 @@ function CustomMantineThemeProvider(props: CustomMantineThemeProviderProps) {
       sizes: {
         h1: {
           fontSize: "8rem",
-        },
-        h2: {
-          fontSize: "6rem",
         },
       },
     },

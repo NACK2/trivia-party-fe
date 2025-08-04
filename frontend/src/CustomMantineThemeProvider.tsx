@@ -8,6 +8,7 @@ import {
   Text,
   TextInput,
 } from "@mantine/core";
+import clsx from "clsx";
 import styles from "./Global.module.css";
 import "@mantine/core/styles.css";
 
@@ -25,6 +26,9 @@ function CustomMantineThemeProvider(props: CustomMantineThemeProviderProps) {
     },
     components: {
       ActionIcon: ActionIcon.extend({
+        classNames: () => ({
+          root: styles.boxShadow,
+        }),
         vars: (theme, props) => {
           if (props.size === "sm") {
             return {
@@ -39,7 +43,10 @@ function CustomMantineThemeProvider(props: CustomMantineThemeProviderProps) {
       }),
       Button: Button.extend({
         classNames: (_, props) => ({
-          root: props.c === "white" ? styles.outlinedText : undefined,
+          root: clsx(
+            props.c === "white" && styles.outlinedText,
+            styles.boxShadow
+          ),
         }),
         vars: (theme, props) => {
           // can probably refactor this into a single object later if theres enough overlap among sizes
@@ -70,15 +77,24 @@ function CustomMantineThemeProvider(props: CustomMantineThemeProviderProps) {
       }),
       Title: Title.extend({
         classNames: (_, props) => ({
-          root: props.c === "white" ? styles.outlinedTitle : undefined,
+          root: clsx(
+            props.c === "white" && styles.outlinedTitle,
+            styles.textShadow
+          ),
         }),
       }),
       Text: Text.extend({
         classNames: (_, props) => ({
-          root: props.c === "white" ? styles.outlinedText : undefined,
+          root: clsx(
+            props.c === "white" && styles.outlinedText,
+            styles.textShadow
+          ),
         }),
       }),
       TextInput: TextInput.extend({
+        classNames: () => ({
+          root: styles.boxShadow,
+        }),
         vars: (theme, props) => {
           if (props.size === "lg") {
             return {
@@ -99,6 +115,9 @@ function CustomMantineThemeProvider(props: CustomMantineThemeProviderProps) {
       md: "1.5rem",
       sm: "1.25rem",
       xs: "1rem",
+    },
+    shadows: {
+      xl: "6px 6px 4px rgba(0, 0, 0, .25)",
     },
     headings: {
       sizes: {

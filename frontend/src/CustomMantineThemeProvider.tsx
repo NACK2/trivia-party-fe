@@ -93,7 +93,7 @@ function CustomMantineThemeProvider(props: CustomMantineThemeProviderProps) {
       }),
       TextInput: TextInput.extend({
         classNames: () => ({
-          root: styles.boxShadow,
+          input: styles.boxShadow,
         }),
         vars: (theme, props) => {
           if (props.size === "lg") {

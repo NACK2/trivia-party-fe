@@ -4,6 +4,7 @@ import {
   createTheme,
   Title,
   Text,
+  TextInput,
   Button,
 } from "@mantine/core";
 import styles from "./Global.module.css";
@@ -13,6 +14,26 @@ function CustomMantineThemeProvider(props: CustomMantineThemeProviderProps) {
   const { children } = props;
   const theme = createTheme({
     components: {
+      Button: Button.extend({
+        classNames: (_, props) => ({
+          root: props.c === "white" ? styles.outlinedText : undefined,
+        }),
+        vars: (_, props) => {
+          if (props.size === "xl") {
+            return {
+              root: {
+                "--button-height": "4rem",
+                "--button-padding-x": "1.5rem",
+              },
+              label: {
+                padding: "0 2px", // x axis padding is needed for label b/c Luckiest Guy font cuts off on edges for some reason
+              },
+            };
+          }
+
+          return { root: {} };
+        },
+      }),
       Title: Title.extend({
         classNames: (_, props) => ({
           root: props.c === "white" ? styles.outlinedTitle : undefined,
@@ -23,19 +44,12 @@ function CustomMantineThemeProvider(props: CustomMantineThemeProviderProps) {
           root: props.c === "white" ? styles.outlinedText : undefined,
         }),
       }),
-      Button: Button.extend({
-        classNames: (_, props) => ({
-          root: props.c === "white" ? styles.outlinedText : undefined,
-        }),
+      TextInput: TextInput.extend({
         vars: (_, props) => {
-          if (props.size === "xl") {
+          if (props.size === "lg") {
             return {
-              root: {
-                "--button-height": "4rem",
-                "--button-padding-x": "1rem",
-              },
-              label: {
-                padding: "0 2px",
+              wrapper: {
+                "--input-height": "4rem",
               },
             };
           }

@@ -1,3 +1,5 @@
+# TODO: create seperate service for frontend-prod
+
 services:
   frontend:
     build:

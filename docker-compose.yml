@@ -1,7 +1,8 @@
-# TODO: create seperate service for frontend-prod
+# TODO: create separate services for prod environments
 
 services:
-  frontend:
+  client:
+    container_name: trivia-party-client
     build:
       context: client
       dockerfile: Dockerfile.dev
@@ -11,7 +12,7 @@ services:
       watch:
         - action: sync
           path: client
-          target: /app/frontend
+          target: /app/client
           ignore:
             - node_modules/
         - action: rebuild

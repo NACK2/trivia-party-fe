@@ -1,29 +1,40 @@
 # Trivia Party
 
-### How to run the project
+## How to run the project
 
 **Prerequities:**
 Make sure Docker Desktop is installed
 
+### Running the entire project
 To run the entire project, simply run the following command on the CLI in the root of the project:
 
 ```
 docker compose watch
 ```
 
-This will run the frontend application on `localhost:5173`, and it will make use of Vite's HMR to automatically sync the changes you make in the code editor to the container.
+- This will run the frontend application on `localhost:5173`, and it will make use of Vite's HMR to automatically sync the changes you make in the code editor to the container.
+- The PostgreSQL DB server will be running on `localhost:5433`.
 
-However, to run only the frontend service, navigate to the `frontend` folder and run the following command to build the frontend docker image:
+While the above command runs all services, it will only "watch" the frontend service, meaning while all services will run, 
+only the frontend service will reflect live changes when you edit the source code. 
 
+Don't forget to rebuild your images if you make any changes to the source code (this is for non-watched services):
 ```
-docker build -t {tagName} -f Dockerfile.dev .
-```
-
-and run the container by doing:
-```
-docker run -p {hostPort}:5173 -d {tagName}
+docker compose build
 ```
 
-The frontend application will be running on `localhost:{hostPort}`.
+## How to access the Postgres DB
+**Note:** Make sure you are running the Postgres container
 
-**Important caveat**: When using this approach and running only the frontend container, you will have to rebuild the image and rerun the container every time to see your changes, so running the entire application using docker compose is recommended.
+There are 3 ways to access the Postgres DB: Through pgAdmin4 (provides GUI), the terminal, or Docker Desktop
+- pgAdmin4:
+  - Register a new server connection
+  - Fill in the credentials (hostname: `localhost`, port: `5433`, username: `postgress`, password: `password`) and connect
+- Terminal:
+  - Within the terminal, type in the command `docker exec -it postgres-db bash` to enter the bash shell of the postgres container
+  - Type `psql -U postgres` to connect using the `postgres` user role
+  - When finished, use `exit` to leave the bash shell
+- Docker Desktop:
+  - Within Docker Desktop, click on the actively running `postgres-db` container, then go to the `Exec` tab
+  - Type `bash`, then type `psql -U postgres`
+  - When finished, use `exit` to leave the bash shell

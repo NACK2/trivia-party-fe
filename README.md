@@ -23,6 +23,22 @@ Don't forget to rebuild your images if you make any changes to the source code (
 docker compose build
 ```
 
+### Running specific services
+To run only the frontend service:
+```
+docker compose watch client
+```
+
+To run the backend service + DB:
+```
+docker compose up server -d
+```
+
+To run only the DB:
+```
+docker compose up db -d
+```
+
 ## How to access the Postgres DB
 **Note:** Make sure you are running the Postgres container
 

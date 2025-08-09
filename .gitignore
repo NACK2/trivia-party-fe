@@ -1,56 +1,56 @@
 # -- Frontend --
 
 # Logs
-frontend/logs
-frontend/*.log
-frontend/npm-debug.log*
-frontend/yarn-error.log*
-frontend/pnpm-debug.log*
-frontend/lerna-debug.log*
+client/logs
+client/*.log
+client/npm-debug.log*
+client/yarn-error.log*
+client/pnpm-debug.log*
+client/lerna-debug.log*
 
-frontend/node_modules
-frontend/dist
-frontend/dist-ssr
-frontend/*.local
+client/node_modules
+client/dist
+client/dist-ssr
+client/*.local
 
 # Editor directories and files
-frontend/.vscode/*
-frontend/!.vscode/extensions.json
-frontend/.idea
-frontend/.DS_Store
-frontend/*.suo
-frontend/*.ntvs*
-frontend/*.njsproj
-frontend/*.sln
-frontend/*.sw?
+client/.vscode/*
+client/!.vscode/extensions.json
+client/.idea
+client/.DS_Store
+client/*.suo
+client/*.ntvs*
+client/*.njsproj
+client/*.sln
+client/*.sw?
 
 
 # -- Backend --
 
-backend/HELP.md
-backend/target/
-backend/.mvn/wrapper/maven-wrapper.jar
-!backend/**/src/main/**/target/
-!backend/**/src/test/**/target/
+server/HELP.md
+server/target/
+server/.mvn/wrapper/maven-wrapper.jar
+!server/**/src/main/**/target/
+!server/**/src/test/**/target/
 
 # STS
-backend/.apt_generated
-backend/.classpath
-backend/.factorypath
-backend/.project
-backend/.settings
-backend/.springBeans
-backend/.sts4-cache
+server/.apt_generated
+server/.classpath
+server/.factorypath
+server/.project
+server/.settings
+server/.springBeans
+server/.sts4-cache
 
 # NetBeans
-backend/nbproject/private/
-backend/nbbuild/
-backend/dist/
-backend/nbdist/
-backend/.nb-gradle/
-backend/build/
-!backend/**/src/main/**/build/
-!backend/**/src/test/**/build/
+server/nbproject/private/
+server/nbbuild/
+server/dist/
+server/nbdist/
+server/.nb-gradle/
+server/build/
+!server/**/src/main/**/build/
+!server/**/src/test/**/build/
 
 # -- Root --
 

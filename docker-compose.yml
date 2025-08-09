@@ -2,25 +2,25 @@
 
 services:
   frontend:
-    container_name: trivia-party-client
+    container_name: trivia-party-fe
     build:
-      context: client
+      context: frontend
       dockerfile: Dockerfile.dev
     ports:
       - "5173:5173"
     develop:
       watch:
         - action: sync
-          path: client
-          target: /app/client
+          path: frontend
+          target: /app/frontend
           ignore:
             - node_modules/
         - action: rebuild
           path: package.json
-  server:
-    container_name: trivia-party-server
+  backend:
+    container_name: trivia-party-be
     build:
-      context: server
+      context: backend
       dockerfile: Dockerfile.dev
     ports:
       - "8080:8080"

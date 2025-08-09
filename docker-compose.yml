@@ -1,18 +1,34 @@
-# TODO: create seperate service for frontend-prod
+# TODO: create either a separate docker-compose for prod, or use profiles
 
 services:
-  frontend:
+  client:
+    container_name: trivia-party-client
     build:
-      context: ./frontend
+      context: client
       dockerfile: Dockerfile.dev
     ports:
       - "5173:5173"
     develop:
       watch:
         - action: sync
-          path: ./frontend
-          target: /app/frontend
+          path: client
+          target: /app/client
           ignore:
             - node_modules/
         - action: rebuild
           path: package.json
+  db:
+    container_name: postgres-db
+    image: postgres:latest
+    restart: always
+    ports:
+      - "5433:5432" # Purposefully 5433, not 5432
+    volumes:
+      - pg-data:/var/lib/postgresql/data
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: trivia_party
+
+volumes:
+  pg-data:

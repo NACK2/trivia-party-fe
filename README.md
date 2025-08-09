@@ -55,3 +55,10 @@ There are 3 ways to access the Postgres DB: Through pgAdmin4 (provides GUI), the
   - Within Docker Desktop, click on the actively running `trivia-party-db` container, then go to the `Exec` tab
   - Type `bash`, then type `psql -U postgres`
   - When finished, use `exit` to leave the bash shell
+
+**Note:** During local development, if you desire fresh creation and deletion of all data on every run in the 
+Postgres DB, within the `docker-compose.yml` file, change the following environment variable under the backend service to:
+```
+SPRING_JPA_HIBERNATE_DDL_AUTO=create-drop
+```
+This will create the schema at startup, and will drop it on shutdown

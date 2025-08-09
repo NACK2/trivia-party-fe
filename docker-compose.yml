@@ -30,7 +30,7 @@ services:
       - SPRING_DATASOURCE_URL=jdbc:postgresql://db:5432/trivia_party
       - SPRING_DATASOURCE_USERNAME=postgres
       - SPRING_DATASOURCE_PASSWORD=password
-      - SPRING_JPA_HIBERNATE_DDL_AUTO=create-drop
+      - SPRING_JPA_HIBERNATE_DDL_AUTO=update
   db:
     container_name: trivia-party-db
     image: postgres:latest

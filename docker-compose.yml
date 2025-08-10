@@ -1,24 +1,38 @@
 # TODO: create either a separate docker-compose for prod, or use profiles
 
 services:
-  client:
-    container_name: trivia-party-client
+  frontend:
+    container_name: trivia-party-fe
     build:
-      context: client
+      context: frontend
       dockerfile: Dockerfile.dev
     ports:
       - "5173:5173"
     develop:
       watch:
         - action: sync
-          path: client
-          target: /app/client
+          path: frontend
+          target: /app/frontend
           ignore:
             - node_modules/
         - action: rebuild
           path: package.json
+  backend:
+    container_name: trivia-party-be
+    build:
+      context: backend
+      dockerfile: Dockerfile.dev
+    ports:
+      - "8080:8080"
+    depends_on:
+      - db
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://db:5432/trivia_party
+      - SPRING_DATASOURCE_USERNAME=postgres
+      - SPRING_DATASOURCE_PASSWORD=password
+      - SPRING_JPA_HIBERNATE_DDL_AUTO=update
   db:
-    container_name: postgres-db
+    container_name: trivia-party-db
     image: postgres:latest
     restart: always
     ports:
